@@ -1,11 +1,27 @@
+import * as yup from 'yup';
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { UsersRepository } from '../repositories/UsersRepository';
+import { AppError } from '../errors/AppError';
 
 class UserController {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async create(request: Request, response: Response) {
     const { name, email } = request.body;
+
+    const schema = yup.object().shape({
+      name: yup.string().required('Nome é obrigatório!'),
+      email: yup
+        .string()
+        .email('E-mail inválido!')
+        .required('E-mail é obrigatório!'),
+    });
+
+    try {
+      await schema.validate(request.body, { abortEarly: false });
+    } catch (err) {
+      throw new AppError(err);
+    }
 
     const usersRepository = getCustomRepository(UsersRepository);
 
@@ -14,7 +30,7 @@ class UserController {
     });
 
     if (userAlreadyExists) {
-      return response.status(400).json({ error: 'User Already Exists!' });
+      throw new AppError('User Already Exists!');
     }
 
     const user = usersRepository.create({
