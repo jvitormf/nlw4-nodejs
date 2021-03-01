@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable no-console */
 import nodemailer, { Transporter } from 'nodemailer';
 import handlebars from 'handlebars';
