@@ -9,9 +9,9 @@ class AnswerController {
     const { value } = request.params;
     const { u } = request.query;
 
-    const surverysUsersRepository = getCustomRepository(SurveysUsersRepository);
+    const surveysUsersRepository = getCustomRepository(SurveysUsersRepository);
 
-    const surveyUser = await surverysUsersRepository.findOne({
+    const surveyUser = await surveysUsersRepository.findOne({
       id: String(u),
     });
 
@@ -20,7 +20,7 @@ class AnswerController {
     }
     surveyUser.value = Number(value);
 
-    await surverysUsersRepository.save(surveyUser);
+    await surveysUsersRepository.save(surveyUser);
 
     return response.json(surveyUser);
   }
