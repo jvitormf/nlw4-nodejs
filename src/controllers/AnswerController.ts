@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { AppError } from '../errors/AppError';
 import { SurveysUsersRepository } from '../repositories/SurveysUsersRepository';
 
 class AnswerController {
-  async execute(request: Request, response: Response) {
+  async execute(request: Request, response: Response): Promise<Response> {
     const { value } = request.params;
     const { u } = request.query;
 

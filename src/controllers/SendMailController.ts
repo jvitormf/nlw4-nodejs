@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Request, Response } from 'express';
 import { resolve } from 'path';
 import { getCustomRepository } from 'typeorm';
@@ -9,7 +8,7 @@ import { UsersRepository } from '../repositories/UsersRepository';
 import SendMailService from '../services/SendMailService';
 
 class SendMailController {
-  async execute(request: Request, response: Response) {
+  async execute(request: Request, response: Response): Promise<Response> {
     const { email, survey_id } = request.body;
 
     const usersRepository = getCustomRepository(UsersRepository);

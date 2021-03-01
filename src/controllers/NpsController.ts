@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Request, Response } from 'express';
 import { getCustomRepository, IsNull, Not } from 'typeorm';
 import { SurveysUsersRepository } from '../repositories/SurveysUsersRepository';
 
 class NpsController {
-  async execute(request: Request, response: Response) {
+  async execute(request: Request, response: Response): Promise<Response> {
     const { survey_id } = request.params;
 
     const surveysUsersRepository = getCustomRepository(SurveysUsersRepository);

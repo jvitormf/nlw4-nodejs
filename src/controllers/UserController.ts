@@ -5,8 +5,7 @@ import { UsersRepository } from '../repositories/UsersRepository';
 import { AppError } from '../errors/AppError';
 
 class UserController {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async create(request: Request, response: Response) {
+  async create(request: Request, response: Response): Promise<Response> {
     const { name, email } = request.body;
 
     const schema = yup.object().shape({
