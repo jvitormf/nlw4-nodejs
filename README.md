@@ -52,6 +52,7 @@ This API REST is created to be used as a Net Promoter Score (NPS).
   ## Tools
   * [VSCode](https://code.visualstudio.com/)
   * [Insomnia](https://insomnia.rest/download/)
+  * [Beekeeper Studio](https://www.beekeeperstudio.io/)
 
   ## Technologies
   * [Typescript](https://www.typescriptlang.org/)
