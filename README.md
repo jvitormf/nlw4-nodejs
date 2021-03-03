@@ -74,6 +74,8 @@ To get a local copy up and running follow these simple steps.
 * Node.js - [Install guide](https://nodejs.org/en/download/package-manager/)
 * Yarn - [Install guide](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
 
+* A JSON file with the routes is available [here](https://github.com/jvitormf/nlw4-nodejs/blob/master/.github/NLW4.json) (**exported from Insomnia**)
+
 [:arrow_up: Back to top](#table-of-Contents)
 
 
